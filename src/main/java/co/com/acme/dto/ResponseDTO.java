@@ -5,6 +5,16 @@ public class ResponseDTO {
 	private Integer code;
 	private String message;
 	
+	
+	
+	public ResponseDTO() {
+		super();
+	}
+	public ResponseDTO(Integer code, String message) {
+		super();
+		this.code = code;
+		this.message = message;
+	}
 	public Integer getCode() {
 		return code;
 	}

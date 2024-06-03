@@ -116,4 +116,13 @@ public class Consumption {
     protected void onUpdate() {
         this.updatedAt = LocalDateTime.now();
     }
+
+	@Override
+	public String toString() {
+		return "Consumption [id=" + id + ", device=" + device + ", consumptionDate=" + consumptionDate
+				+ ", consumptionValue=" + consumptionValue + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt
+				+ "]";
+	}
+    
+    
 }

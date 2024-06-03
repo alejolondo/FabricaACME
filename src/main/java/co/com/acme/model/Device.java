@@ -45,6 +45,15 @@ public class Device {
 	public Device() {
 		super();
 	}
+	
+	
+
+	public Device(Long id) {
+		super();
+		this.id = id;
+	}
+
+
 
 	public Device(Long id,
 			@NotEmpty(message = "name field is required") @Size(min = 2, max = 30, message = "name must be between 2 and 30 characters") String name,
@@ -108,5 +117,13 @@ public class Device {
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
+
+	@Override
+	public String toString() {
+		return "Device [id=" + id + ", name=" + name + ", consumption=" + consumption + ", createdAt=" + createdAt
+				+ ", updatedAt=" + updatedAt + "]";
+	}
+	
+	
 
 }
