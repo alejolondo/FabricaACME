@@ -3,6 +3,7 @@ package co.com.acme.dto;
 import java.time.LocalDate;
 
 import co.com.acme.model.Device;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -10,6 +11,7 @@ import lombok.Data;
 @Data
 public class ConsumptionDTO {
 
+	@Id
 	private Long id; 
 	
 	@NotNull(message = "You must enter a device id")

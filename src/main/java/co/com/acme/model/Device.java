@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -31,6 +33,7 @@ public class Device {
 	
 	
 	@OneToMany(mappedBy = "device", fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<Consumption> consumption;
 	
 	@Column(updatable = false)
