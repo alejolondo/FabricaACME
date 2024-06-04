@@ -1,7 +1,6 @@
 package co.com.acme.controller;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +18,7 @@ import co.com.acme.dto.ResponseDTO;
 import co.com.acme.exeption.DeviceNotFoundException;
 import co.com.acme.service.ConsumptionService;
 import co.com.acme.service.DeviceService;
+import co.com.acme.util.Period;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 
@@ -48,7 +48,7 @@ public class ConsumptionController {
 
 	@GetMapping("/period")
 	public ResponseEntity<List<ConsumptionDTO>> getConsumptions(@RequestParam Long deviceId,
-	        @RequestParam LocalDate date, @RequestParam String period) {
+	        @RequestParam LocalDate date, @RequestParam Period period) {
 	    try {
 	        List<ConsumptionDTO> consumptions = consumptionService.getConsumptions(deviceId, date, period);
 	        return ResponseEntity.ok(consumptions);
@@ -60,5 +60,23 @@ public class ConsumptionController {
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
 	    }
 	}
+	
+	
+	@GetMapping("/peaks")
+    public ResponseEntity<List<ConsumptionDTO>> getConsumptionPeaks(
+            @RequestParam Long deviceId,
+            @RequestParam  LocalDate date,
+            @RequestParam Period period) {
+        try {
+            List<ConsumptionDTO> peaks = consumptionService.getConsumptionPeaks(deviceId, date, period);
+            return new ResponseEntity<>(peaks, HttpStatus.OK);
+        } catch (DeviceNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
 }

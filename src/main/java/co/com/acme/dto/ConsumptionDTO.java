@@ -11,8 +11,8 @@ import lombok.Data;
 @Data
 public class ConsumptionDTO {
 
-	@Id
-	private Long id; 
+	
+	
 	
 	@NotNull(message = "You must enter a device id")
 	private Device device;
@@ -30,18 +30,15 @@ public class ConsumptionDTO {
 
 	
 
-	public ConsumptionDTO(Long id, Device device, LocalDate consumptionDate, Double consumptionValue) {
+	public ConsumptionDTO( Device device, LocalDate consumptionDate, Double consumptionValue) {
 		super();
-		this.id = id;
+		
 		this.device = device;
 		this.consumptionDate = consumptionDate;
 		this.consumptionValue = consumptionValue;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
+	
 	
 	public Device getDevice() {
 		return device;
@@ -68,12 +65,7 @@ public class ConsumptionDTO {
 		this.consumptionValue = consumptionValue;
 	}
 
-	@Override
-	public String toString() {
-		return "ConsumptionDTO [id=" + id + ", device=" + device + ", consumptionDate=" + consumptionDate
-				+ ", consumptionValue=" + consumptionValue + "]";
-	}
-
+	
 
 	
 	
