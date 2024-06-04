@@ -1,7 +1,8 @@
 # API REST de Fabrica ACME
 
 Esta es una API REST para la prueba técnica de Fabrica ACME. Proporciona servicios para registrar y consultar el consumo de un dispositivo.
-
+El servico Rest desarrolla 3 historias de Usuario para registrar y consultar el consumo de un dispositivo en determinados periodos de tiempo. 
+El codigo principal se encuentra en la rama Alejo.
 ## Instalación y Requisitos
 
 Para ejecutar este proyecto, necesitarás tener instalado lo siguiente:
