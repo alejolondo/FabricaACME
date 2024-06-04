@@ -11,6 +11,6 @@ public class ConsumptionConfig {
 
     public double getConsumptionThreshold() {
         return consumptionThreshold;
-    }
+    }    
 
 }
